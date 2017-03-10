@@ -165,7 +165,7 @@ public class Memory extends JFrame {
 	}
 	private void assignimages() {
 		for (int x=0;x<GRIDSIZE*GRIDSIZE;x++) {
-			int i = rand.nextInt(GRIDSIZE);
+			int i = rand.nextInt(4);
 			
 			
 			if (oldi == i) {
