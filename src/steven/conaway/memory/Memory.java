@@ -29,17 +29,13 @@ public class Memory extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private static final int GRIDSIZE = 3;
-	//private PicButton picbtn = new PicButton();
-	//private PicButton[][] picbtn = new PicButton[GRIDSIZE][GRIDSIZE];
-	private Random rand = new Random();
-	private ClassLoader cl = this.getClass().getClassLoader();
-	private String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
+	private static final int GRIDSIZE = 4;
+	private static final Random rand = new Random();
+	private final ClassLoader cl = this.getClass().getClassLoader();
+	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
 	private ArrayList<String> images = new ArrayList<String>();
-	private String icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9;
-	private int oldi;
-	//private int[][] imageNumbers;
+	private String icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15, icon16;
+	private int a;
 	private JButton btn1 = new JButton();
 	private JButton btn2 = new JButton();
 	private JButton btn3 = new JButton();
@@ -49,6 +45,14 @@ public class Memory extends JFrame {
 	private JButton btn7 = new JButton();
 	private JButton btn8 = new JButton();
 	private JButton btn9 = new JButton();
+	private JButton btn10 = new JButton();
+	private JButton btn11 = new JButton();
+	private JButton btn12 = new JButton();
+	private JButton btn13 = new JButton();
+	private JButton btn14 = new JButton();
+	private JButton btn15 = new JButton();
+	private JButton btn16 = new JButton();
+	private static final Dimension size = new Dimension(100,100);
 
 	public Memory() {
 		initGUI();
@@ -70,7 +74,6 @@ public class Memory extends JFrame {
 		add(centerPanel, BorderLayout.CENTER);
 		
 		icon1 = images.get(0);
-		Dimension size = new Dimension(150,150);
 		btn1.setPreferredSize(size);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -159,24 +162,110 @@ public class Memory extends JFrame {
 				}
 		});
 		centerPanel.add(btn9);
-		/**/
 		
+		icon10 = images.get(9);
+		btn10.setPreferredSize(size);
+		btn10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn10.setIcon(new ImageIcon(cl.getResource(icon10)));
+				}
+		});
+		centerPanel.add(btn10);
+		
+		icon11 = images.get(10);
+		btn11.setPreferredSize(size);
+		btn11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn11.setIcon(new ImageIcon(cl.getResource(icon11)));
+				}
+		});
+		centerPanel.add(btn11);
+		
+		icon12 = images.get(11);
+		btn12.setPreferredSize(size);
+		btn12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn12.setIcon(new ImageIcon(cl.getResource(icon12)));
+				}
+		});
+		centerPanel.add(btn12);
+		
+		icon13 = images.get(12);
+		btn13.setPreferredSize(size);
+		btn13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn13.setIcon(new ImageIcon(cl.getResource(icon13)));
+				}
+		});
+		centerPanel.add(btn13);
+		
+		icon14 = images.get(13);
+		btn14.setPreferredSize(size);
+		btn14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn14.setIcon(new ImageIcon(cl.getResource(icon14)));
+				}
+		});
+		centerPanel.add(btn14);
+		
+		icon15 = images.get(14);
+		btn15.setPreferredSize(size);
+		btn15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn15.setIcon(new ImageIcon(cl.getResource(icon15)));
+				}
+		});
+		centerPanel.add(btn15);
+		
+		icon16 = images.get(15);
+		btn16.setPreferredSize(size);
+		btn16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				btn16.setIcon(new ImageIcon(cl.getResource(icon16)));
+				}
+		});
+		centerPanel.add(btn16);
+		/**/
 		
 	}
 	private void assignimages() {
-		for (int x=0;x<GRIDSIZE*GRIDSIZE;x++) {
-			int i = rand.nextInt(4);
+
+		
+		a = generateRandom(10);
+	    System.out.println(a);
+	    if(images.lastIndexOf(a) != 0) {
+	    	images.add(imagelist[a]);
+	    }
+	    
+		while(images.size() != 16) {
 			
-			
-			if (oldi == i) {
-				i = rand.nextInt(GRIDSIZE);
-			}
-			images.add(imagelist[i]);
-			oldi = i;
+		    a = generateRandom(a);
+		    System.out.println(a);
+		    if(images.lastIndexOf(a) != 1) {
+		    	images.add(imagelist[a]);
+		    }
 		}
 		for (int x=0;x<images.size();x++) {
 			System.out.println(images.get(x));
 		}
+	}
+	
+	int generateRandom(int lastRandomNumber) {
+
+	    // add-and-wrap another random number to produce a guaranteed
+	    // different result.
+	    // note the one-less-than UPPER_BOUND input
+	    int rotate = 1 + rand.nextInt(imagelist.length - 1);
+	    // 'rotate' the last number
+	    return (lastRandomNumber + rotate) % imagelist.length;
+
 	}
 	
 	public static void main(String[] args) {
