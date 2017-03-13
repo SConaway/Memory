@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.ArrayList;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,9 +34,13 @@ public class Memory extends JFrame {
 	private final ClassLoader cl = this.getClass().getClassLoader();
 	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
 	private ArrayList<String> images = new ArrayList<String>();
-	private String icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15, icon16;
+	private ArrayList<String> key = new ArrayList<String>();
+	private ArrayList btnsPressed = new ArrayList(); //change to in arraylist
+	private String icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15;
 	private static final String icon = "";
-	private int a;
+	private int a, i, btnPressed = 0;
+	
+	private JButton btn0 = new JButton();
 	private JButton btn1 = new JButton();
 	private JButton btn2 = new JButton();
 	private JButton btn3 = new JButton();
@@ -53,7 +56,7 @@ public class Memory extends JFrame {
 	private JButton btn13 = new JButton();
 	private JButton btn14 = new JButton();
 	private JButton btn15 = new JButton();
-	private JButton btn16 = new JButton();
+
 	private static final Dimension size = new Dimension(100,100);
 
 	public Memory() {
@@ -92,170 +95,181 @@ public class Memory extends JFrame {
 		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
 		add(centerPanel, BorderLayout.CENTER);
 		
-		icon1 = images.get(0);
-		btn1.setPreferredSize(size);
-		btn1.addActionListener(new ActionListener() {
+		icon0 = images.get(0);
+		btn0.setPreferredSize(size);
+		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon1);
+				btnPressed++;	
+				btnsPressed.add("btn" + 0);
+				setIcon((JButton) e.getSource(), icon0);
 				}
 		});
 		centerPanel.add(btn1);
 		
-		icon2 = images.get(1);
-		btn2.setPreferredSize(size);
-		btn2.addActionListener(new ActionListener() {
+		icon1 = images.get(1);
+		btn1.setPreferredSize(size);
+		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon2);
+				btnPressed++;	
+				btnsPressed.add("btn" + 1);
+				setIcon((JButton) e.getSource(), icon1);
 				}
 		});
 		centerPanel.add(btn2);
 		
-		icon3 = images.get(2);
-		btn3.setPreferredSize(size);
-		btn3.addActionListener(new ActionListener() {
+		icon2 = images.get(2);
+		btn2.setPreferredSize(size);
+		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon3);
+				btnPressed++;	
+				btnsPressed.add("btn" + 2);
+				setIcon((JButton) e.getSource(), icon2);
 				}
 		});
 		centerPanel.add(btn3);
 		
-		icon4 = images.get(3);
-		btn4.setPreferredSize(size);
-		btn4.addActionListener(new ActionListener() {
+		icon3 = images.get(3);
+		btn3.setPreferredSize(size);
+		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon4);
+				btnPressed++;	
+				btnsPressed.add("btn" + 3);
+				setIcon((JButton) e.getSource(), icon3);
 				}
 		});
 		centerPanel.add(btn4);
 		
-		icon5 = images.get(4);
-		btn5.setPreferredSize(size);
-		btn5.addActionListener(new ActionListener() {
+		icon4 = images.get(4);
+		btn4.setPreferredSize(size);
+		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon5);
+				btnPressed++;	
+				btnsPressed.add("btn" + 4);
+				setIcon((JButton) e.getSource(), icon4);
 				}
 		});
 		centerPanel.add(btn5);
 		
-		icon6 = images.get(5);
-		btn6.setPreferredSize(size);
-		btn6.addActionListener(new ActionListener() {
+		icon5 = images.get(5);
+		btn5.setPreferredSize(size);
+		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon6);
+				btnPressed++;
+				btnsPressed.add("btn" + 5);
+				setIcon((JButton) e.getSource(), icon5);
 				}
 		});
 		centerPanel.add(btn6);
 		
-		icon7 = images.get(6);
-		btn7.setPreferredSize(size);
-		btn7.addActionListener(new ActionListener() {
+		icon6 = images.get(6);
+		btn6.setPreferredSize(size);
+		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon7);
+				btnPressed++;	
+				btnsPressed.add("btn" + 6);
+				setIcon((JButton) e.getSource(), icon6);
 				}
 		});
 		centerPanel.add(btn7);
 		
-		icon8 = images.get(7);
-		btn8.setPreferredSize(size);
-		btn8.addActionListener(new ActionListener() {
+		icon7 = images.get(7);
+		btn7.setPreferredSize(size);
+		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon8);
+				btnPressed++;	
+				btnsPressed.add("btn" + 7);
+				setIcon((JButton) e.getSource(), icon7);
 				}
 		});
 		centerPanel.add(btn8);
 		
-		icon9 = images.get(8);
-		btn9.setPreferredSize(size);
-		btn9.addActionListener(new ActionListener() {
+		icon8 = images.get(8);
+		btn8.setPreferredSize(size);
+		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon9);
+				btnPressed++;	
+				btnsPressed.add("btn" + 8);
+				setIcon((JButton) e.getSource(), icon8);
 				}
 		});
 		centerPanel.add(btn9);
 		
-		icon10 = images.get(9);
-		btn10.setPreferredSize(size);
-		btn10.addActionListener(new ActionListener() {
+		icon9 = images.get(9);
+		btn9.setPreferredSize(size);
+		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon10);
+				btnPressed++;	
+				btnsPressed.add("btn" + 9);
+				setIcon((JButton) e.getSource(), icon9);
 				}
 		});
 		centerPanel.add(btn10);
 		
-		icon11 = images.get(10);
-		btn11.setPreferredSize(size);
-		btn11.addActionListener(new ActionListener() {
+		icon10 = images.get(10);
+		btn10.setPreferredSize(size);
+		btn10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon11);
+				btnPressed++;	
+				btnsPressed.add("btn" + 10);
+				setIcon((JButton) e.getSource(), icon10);
 				}
 		});
 		centerPanel.add(btn11);
 		
-		icon12 = images.get(11);
-		btn12.setPreferredSize(size);
-		btn12.addActionListener(new ActionListener() {
+		icon11 = images.get(11);
+		btn11.setPreferredSize(size);
+		btn11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				setIcon((JButton) e.getSource(), icon12);
+				btnPressed++;
+				btnsPressed.add("btn" + 11);
+				setIcon((JButton) e.getSource(), icon11);
 				}
 		});
 		centerPanel.add(btn12);
 		
-		icon13 = images.get(12);
+		icon12 = images.get(12);
+		btn12.setPreferredSize(size);
+		btn12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPressed++;	
+				btnsPressed.add("btn" + 12);
+				setIcon((JButton) e.getSource(), icon12);
+				}
+		});
+		centerPanel.add(btn13);
+		
+		icon13 = images.get(13);
 		btn13.setPreferredSize(size);
 		btn13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
+				btnPressed++;	
+				btnsPressed.add("btn" + 13);
 				setIcon((JButton) e.getSource(), icon13);
 				}
 		});
 		centerPanel.add(btn13);
 		
-		icon14 = images.get(13);
+		icon14 = images.get(14);
 		btn14.setPreferredSize(size);
 		btn14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
+				btnPressed++;	
+				btnsPressed.add("btn" + 14);
 				setIcon((JButton) e.getSource(), icon14);
 				}
 		});
 		centerPanel.add(btn14);
 		
-		icon15 = images.get(14);
+		icon15 = images.get(15);
 		btn15.setPreferredSize(size);
 		btn15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
+				btnPressed++;
+				btnsPressed.add("btn" + 15);
 				setIcon((JButton) e.getSource(), icon15);
-				/*try {
-				    Thread.sleep(1000);
-				} catch (Exception x) {}
-				setIcon((JButton) e.getSource(), icon);
-				*/}
-		});
-		centerPanel.add(btn15);
-		
-		icon16 = images.get(15);
-		btn16.setPreferredSize(size);
-		btn16.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-					//setIcon(btn16, icon16);	
-				setIcon((JButton) e.getSource(), icon16);
-				checkTimer.start();
 				}
 		});
-		centerPanel.add(btn16);
+		centerPanel.add(btn15);
 		/**/
 		
 	}
@@ -265,24 +279,91 @@ public class Memory extends JFrame {
 		    System.out.println(a);
 		    if(images.lastIndexOf(a) != 1) {
 		    	images.add(imagelist[a]);
+		    	System.out.println(i + ": ");
+				if(images.lastIndexOf(a) != 1) {
+					key.add("r");
+				}
+		    }
+		   
+		}
+		
+	/*	for(i=0; i<key.size(); i++) {
+		    System.out.println(i + ": ");
+		    if(images.lastIndexOf(a) != 1) {
+		    	key.add(r);
 		    }
 		}
-
+	*/	
+///*
 		for (int x=0;x<images.size();x++) {
 			System.out.println(images.get(x));
 		}
+//*/
 	}
 	private void checkGame() {
 		System.out.println("hi");
-		setIcon(btn16, icon);
+		
+		if (btnPressed==2) {
+			
+			for (int i=0;i<2;i++)
+			{
+				if (btnsPressed.get(i) == "btn0") {
+					setIcon(btn0, icon);
+				}
+				else if (btnsPressed.get(i) == "btn1") {
+					setIcon(btn1, icon);
+				}
+				else if (btnsPressed.get(i) == "btn2") {
+					setIcon(btn2, icon);
+				}
+				else if (btnsPressed.get(i) == "btn2") {
+					setIcon(btn3, icon);
+				}
+				else if (btnsPressed.get(i) == "btn3") {
+					setIcon(btn4, icon);
+				}
+				else if (btnsPressed.get(i) == "btn4") {
+					setIcon(btn5, icon);
+				}
+				else if (btnsPressed.get(i) == "btn5") {
+					setIcon(btn6, icon);
+				}
+				else if (btnsPressed.get(i) == "btn6") {
+					setIcon(btn6, icon);
+				}
+				else if (btnsPressed.get(i) == "btn7") {
+					setIcon(btn7, icon);
+				}
+				else if (btnsPressed.get(i) == "btn8") {
+					setIcon(btn8, icon);
+				}
+				else if (btnsPressed.get(i) == "btn9") {
+					setIcon(btn9, icon);
+				}
+				else if (btnsPressed.get(i) == "btn10") {
+					setIcon(btn10, icon);
+				}
+				else if (btnsPressed.get(i) == "btn11") {
+					setIcon(btn11, icon);
+				}
+				else if (btnsPressed.get(i) == "btn12") {
+					setIcon(btn12, icon);
+				}
+				else if (btnsPressed.get(i) == "btn13") {
+					setIcon(btn13, icon);
+				}
+				else if (btnsPressed.get(i) == "btn14") {
+					setIcon(btn14, icon);
+				}
+				else if (btnsPressed.get(i) == "btn15") {
+					setIcon(btn15, icon);
+				}
+			}
+
+		}
 	}
 	private int generateRandom(int lastRandomNumber) {
-
-	    // add-and-wrap another random number to produce a guaranteed
-	    // different result.
-	    // note the one-less-than UPPER_BOUND input
 	    int rotate = 1 + rand.nextInt(imagelist.length - 1);
-	    // 'rotate' the last number
 	    return (lastRandomNumber + rotate) % imagelist.length;
 
 	}
