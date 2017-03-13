@@ -35,7 +35,7 @@ public class Memory extends JFrame {
 	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
 	private ArrayList<String> images = new ArrayList<String>();
 	private ArrayList<String> key = new ArrayList<String>();
-	private ArrayList btnsPressed = new ArrayList(); //change to in arraylist
+	private ArrayList<String> btnsPressed = new ArrayList<String>();
 	private String icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15;
 	private static final String icon = "";
 	private int a, i, btnPressed = 0;
@@ -70,21 +70,14 @@ public class Memory extends JFrame {
 		}
 	
 	private void initGUI() {
-		
-		
-		
-		
-		Timer checkTimer= new Timer(1000, new ActionListener() {
+
+		Timer checkTimer= new Timer(500, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				checkGame();
 			}
 
 		});
 		checkTimer.setRepeats(true);
-		checkTimer.start();
-		
-		
-		
 		
 		
 		assignimages();
@@ -100,150 +93,150 @@ public class Memory extends JFrame {
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 0);
+				btnsPressed.add("btn0");
 				setIcon((JButton) e.getSource(), icon0);
 				}
 		});
-		centerPanel.add(btn1);
+		centerPanel.add(btn0);
 		
 		icon1 = images.get(1);
 		btn1.setPreferredSize(size);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 1);
+				btnsPressed.add("btn1");
 				setIcon((JButton) e.getSource(), icon1);
 				}
 		});
-		centerPanel.add(btn2);
+		centerPanel.add(btn1);
 		
 		icon2 = images.get(2);
 		btn2.setPreferredSize(size);
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 2);
+				btnsPressed.add("btn2");
 				setIcon((JButton) e.getSource(), icon2);
 				}
 		});
-		centerPanel.add(btn3);
+		centerPanel.add(btn2);
 		
 		icon3 = images.get(3);
 		btn3.setPreferredSize(size);
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 3);
+				btnsPressed.add("btn3");
 				setIcon((JButton) e.getSource(), icon3);
 				}
 		});
-		centerPanel.add(btn4);
+		centerPanel.add(btn3);
 		
 		icon4 = images.get(4);
 		btn4.setPreferredSize(size);
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 4);
+				btnsPressed.add("btn4");
 				setIcon((JButton) e.getSource(), icon4);
 				}
 		});
-		centerPanel.add(btn5);
+		centerPanel.add(btn4);
 		
 		icon5 = images.get(5);
 		btn5.setPreferredSize(size);
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
-				btnsPressed.add("btn" + 5);
+				btnsPressed.add("btn5");
 				setIcon((JButton) e.getSource(), icon5);
 				}
 		});
-		centerPanel.add(btn6);
+		centerPanel.add(btn5);
 		
 		icon6 = images.get(6);
 		btn6.setPreferredSize(size);
 		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 6);
+				btnsPressed.add("btn6");
 				setIcon((JButton) e.getSource(), icon6);
 				}
 		});
-		centerPanel.add(btn7);
+		centerPanel.add(btn6);
 		
 		icon7 = images.get(7);
 		btn7.setPreferredSize(size);
 		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 7);
+				btnsPressed.add("btn7");
 				setIcon((JButton) e.getSource(), icon7);
 				}
 		});
-		centerPanel.add(btn8);
+		centerPanel.add(btn7);
 		
 		icon8 = images.get(8);
 		btn8.setPreferredSize(size);
 		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 8);
+				btnsPressed.add("btn8");
 				setIcon((JButton) e.getSource(), icon8);
 				}
 		});
-		centerPanel.add(btn9);
+		centerPanel.add(btn8);
 		
 		icon9 = images.get(9);
 		btn9.setPreferredSize(size);
 		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 9);
+				btnsPressed.add("btn9");
 				setIcon((JButton) e.getSource(), icon9);
 				}
 		});
-		centerPanel.add(btn10);
+		centerPanel.add(btn9);
 		
 		icon10 = images.get(10);
 		btn10.setPreferredSize(size);
 		btn10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 10);
+				btnsPressed.add("btn10");
 				setIcon((JButton) e.getSource(), icon10);
 				}
 		});
-		centerPanel.add(btn11);
+		centerPanel.add(btn10);
 		
 		icon11 = images.get(11);
 		btn11.setPreferredSize(size);
 		btn11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
-				btnsPressed.add("btn" + 11);
+				btnsPressed.add("btn11");
 				setIcon((JButton) e.getSource(), icon11);
 				}
 		});
-		centerPanel.add(btn12);
+		centerPanel.add(btn11);
 		
 		icon12 = images.get(12);
 		btn12.setPreferredSize(size);
 		btn12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 12);
+				btnsPressed.add("btn12");
 				setIcon((JButton) e.getSource(), icon12);
 				}
 		});
-		centerPanel.add(btn13);
+		centerPanel.add(btn12);
 		
 		icon13 = images.get(13);
 		btn13.setPreferredSize(size);
 		btn13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 13);
+				btnsPressed.add("btn13");
 				setIcon((JButton) e.getSource(), icon13);
 				}
 		});
@@ -254,7 +247,7 @@ public class Memory extends JFrame {
 		btn14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
-				btnsPressed.add("btn" + 14);
+				btnsPressed.add("btn14");
 				setIcon((JButton) e.getSource(), icon14);
 				}
 		});
@@ -265,12 +258,13 @@ public class Memory extends JFrame {
 		btn15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
-				btnsPressed.add("btn" + 15);
+				btnsPressed.add("btn15");
 				setIcon((JButton) e.getSource(), icon15);
 				}
 		});
 		centerPanel.add(btn15);
-		/**/
+		
+		checkTimer.start();
 		
 	}
 	private void assignimages() {
@@ -280,21 +274,22 @@ public class Memory extends JFrame {
 		    if(images.lastIndexOf(a) != 1) {
 		    	images.add(imagelist[a]);
 		    	System.out.println(i + ": ");
-				if(images.lastIndexOf(a) != 1) {
+				if(a == 0) {
 					key.add("r");
+				}
+				else if(a == 1) {
+					key.add("b");
+				}
+				else if(a == 2) {
+					key.add("g");
+				}
+				else if(a == 3) {
+					key.add("y");
 				}
 		    }
 		   
 		}
 		
-	/*	for(i=0; i<key.size(); i++) {
-		    System.out.println(i + ": ");
-		    if(images.lastIndexOf(a) != 1) {
-		    	key.add(r);
-		    }
-		}
-	*/	
-///*
 		for (int x=0;x<images.size();x++) {
 			System.out.println(images.get(x));
 		}
@@ -303,10 +298,11 @@ public class Memory extends JFrame {
 	private void checkGame() {
 		System.out.println("hi");
 		
-		if (btnPressed==2) {
+		if (btnPressed>=2) {
 			
 			for (int i=0;i<2;i++)
 			{
+				System.out.println(btnsPressed.get(i));
 				if (btnsPressed.get(i) == "btn0") {
 					setIcon(btn0, icon);
 				}
@@ -316,17 +312,14 @@ public class Memory extends JFrame {
 				else if (btnsPressed.get(i) == "btn2") {
 					setIcon(btn2, icon);
 				}
-				else if (btnsPressed.get(i) == "btn2") {
+				else if (btnsPressed.get(i) == "btn3") {
 					setIcon(btn3, icon);
 				}
-				else if (btnsPressed.get(i) == "btn3") {
+				else if (btnsPressed.get(i) == "btn4") {
 					setIcon(btn4, icon);
 				}
-				else if (btnsPressed.get(i) == "btn4") {
-					setIcon(btn5, icon);
-				}
 				else if (btnsPressed.get(i) == "btn5") {
-					setIcon(btn6, icon);
+					setIcon(btn5, icon);
 				}
 				else if (btnsPressed.get(i) == "btn6") {
 					setIcon(btn6, icon);
@@ -358,8 +351,10 @@ public class Memory extends JFrame {
 				else if (btnsPressed.get(i) == "btn15") {
 					setIcon(btn15, icon);
 				}
+				
 			}
-
+			btnsPressed.clear();
+			btnPressed = 0;
 		}
 	}
 	private int generateRandom(int lastRandomNumber) {
