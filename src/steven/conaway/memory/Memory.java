@@ -38,7 +38,7 @@ public class Memory extends JFrame {
 	private ArrayList<String> btnsPressed = new ArrayList<String>();
 	private String icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15;
 	private static final String icon = "";
-	private int a, i, btnPressed = 0;
+	private int a, i, pressed, pressed0, pressed1, btnPressed = 0;
 	
 	private JButton btn0 = new JButton();
 	private JButton btn1 = new JButton();
@@ -75,14 +75,11 @@ public class Memory extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				checkGame();
 			}
-
 		});
 		checkTimer.setRepeats(true);
 		
-		
 		assignimages();
-		TitleLabel Title = new TitleLabel("Memory");
-		add(Title, BorderLayout.PAGE_START);
+		add(new TitleLabel("Memory"), BorderLayout.PAGE_START);
 		
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
@@ -267,6 +264,7 @@ public class Memory extends JFrame {
 		checkTimer.start();
 		
 	}
+		
 	private void assignimages() {
 		while(images.size() != 16) {
 		    a = generateRandom(a);
@@ -295,68 +293,135 @@ public class Memory extends JFrame {
 		}
 //*/
 	}
+	
 	private void checkGame() {
-		System.out.println("hi");
 		
-		if (btnPressed>=2) {
+		if (btnPressed==2) {
 			
-			for (int i=0;i<2;i++)
-			{
-				System.out.println(btnsPressed.get(i));
-				if (btnsPressed.get(i) == "btn0") {
-					setIcon(btn0, icon);
+			for (int x=0;x<2;x++) {	
+				System.out.println(btnsPressed.get(x));
+				if (btnsPressed.get(x) == "btn0") {
+					pressed = 0;
 				}
-				else if (btnsPressed.get(i) == "btn1") {
-					setIcon(btn1, icon);
+				else if (btnsPressed.get(x) == "btn1") {
+					pressed = 1;
 				}
-				else if (btnsPressed.get(i) == "btn2") {
-					setIcon(btn2, icon);
+				else if (btnsPressed.get(x) == "btn2") {
+					pressed = 2;
 				}
-				else if (btnsPressed.get(i) == "btn3") {
-					setIcon(btn3, icon);
+				else if (btnsPressed.get(x) == "btn3") {
+					pressed = 3;
 				}
-				else if (btnsPressed.get(i) == "btn4") {
-					setIcon(btn4, icon);
+				else if (btnsPressed.get(x) == "btn4") {
+					pressed = 4;
 				}
-				else if (btnsPressed.get(i) == "btn5") {
-					setIcon(btn5, icon);
+				else if (btnsPressed.get(x) == "btn5") {
+					pressed = 5;
 				}
-				else if (btnsPressed.get(i) == "btn6") {
-					setIcon(btn6, icon);
+				else if (btnsPressed.get(x) == "btn6") {
+					pressed = 6;
 				}
-				else if (btnsPressed.get(i) == "btn7") {
-					setIcon(btn7, icon);
+				else if (btnsPressed.get(x) == "btn7") {
+					pressed = 7;
 				}
-				else if (btnsPressed.get(i) == "btn8") {
-					setIcon(btn8, icon);
+				else if (btnsPressed.get(x) == "btn8") {
+					pressed = 8;
 				}
-				else if (btnsPressed.get(i) == "btn9") {
-					setIcon(btn9, icon);
+				else if (btnsPressed.get(x) == "btn9") {
+					pressed = 9;
 				}
-				else if (btnsPressed.get(i) == "btn10") {
-					setIcon(btn10, icon);
+				else if (btnsPressed.get(x) == "btn10") {
+					pressed = 10;
 				}
-				else if (btnsPressed.get(i) == "btn11") {
-					setIcon(btn11, icon);
+				else if (btnsPressed.get(x) == "btn11") {
+					pressed = 11;
 				}
-				else if (btnsPressed.get(i) == "btn12") {
-					setIcon(btn12, icon);
+				else if (btnsPressed.get(x) == "btn12") {
+					pressed = 12;
 				}
-				else if (btnsPressed.get(i) == "btn13") {
-					setIcon(btn13, icon);
+				else if (btnsPressed.get(x) == "btn13") {
+					pressed = 13;
 				}
-				else if (btnsPressed.get(i) == "btn14") {
-					setIcon(btn14, icon);
+				else if (btnsPressed.get(x) == "btn14") {
+					pressed = 14;
 				}
-				else if (btnsPressed.get(i) == "btn15") {
-					setIcon(btn15, icon);
-				}
+				else if (btnsPressed.get(x) == "btn15") {
+					pressed = 15;
+				}				
 				
+				if (x == 0) {
+					pressed0 = pressed;
+				}
+				else if (x == 1) {
+					pressed1 = pressed;
+				}
+			} // end detection for-loop
+			System.out.println("detected");
+
+			
+			if (key.get(pressed0) == key.get(pressed1))  {
+				btnsPressed.clear();
+				btnPressed = 0;
 			}
-			btnsPressed.clear();
-			btnPressed = 0;
-		}
-	}
+			
+			else {	
+				for (int i=0;i<2;i++) {
+					if (btnsPressed.get(i) == "btn0") {
+						setIcon(btn0, icon);
+					}
+					else if (btnsPressed.get(i) == "btn1") {
+						setIcon(btn1, icon);
+					}
+					else if (btnsPressed.get(i) == "btn2") {
+						setIcon(btn2, icon);
+					}
+					else if (btnsPressed.get(i) == "btn3") {
+						setIcon(btn3, icon);
+					}
+					else if (btnsPressed.get(i) == "btn4") {
+						setIcon(btn4, icon);
+					}
+					else if (btnsPressed.get(i) == "btn5") {
+						setIcon(btn5, icon);
+					}
+					else if (btnsPressed.get(i) == "btn6") {
+						setIcon(btn6, icon);
+					}
+					else if (btnsPressed.get(i) == "btn7") {
+						setIcon(btn7, icon);
+					}
+					else if (btnsPressed.get(i) == "btn8") {
+						setIcon(btn8, icon);
+					}
+					else if (btnsPressed.get(i) == "btn9") {
+						setIcon(btn9, icon);
+					}
+					else if (btnsPressed.get(i) == "btn10") {
+						setIcon(btn10, icon);
+					}
+					else if (btnsPressed.get(i) == "btn11") {
+						setIcon(btn11, icon);
+					}
+					else if (btnsPressed.get(i) == "btn12") {
+						setIcon(btn12, icon);
+					}
+					else if (btnsPressed.get(i) == "btn13") {
+						setIcon(btn13, icon);
+					}
+					else if (btnsPressed.get(i) == "btn14") {
+						setIcon(btn14, icon);
+					}
+					else if (btnsPressed.get(i) == "btn15") {
+						setIcon(btn15, icon);
+					} //end if/else if/else if/...
+					
+				} //end for
+				btnsPressed.clear();
+				btnPressed = 0;
+			}//end if/else
+		} //end if 2 are pressed
+	} // end gameCheck method
+	
 	private int generateRandom(int lastRandomNumber) {
 	    int rotate = 1 + rand.nextInt(imagelist.length - 1);
 	    return (lastRandomNumber + rotate) % imagelist.length;
