@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -29,17 +30,16 @@ public class Memory extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int a, i, pressed, pressed0, pressed1, tries, cardsFlipped, btnPressed = 0;
 	private static final int GRIDSIZE = 4;
-	private static final Random rand = new Random();
-	private final ClassLoader cl = this.getClass().getClassLoader();
 	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
 	private ArrayList<String> images = new ArrayList<String>();
 	private ArrayList<String> key = new ArrayList<String>();
 	private ArrayList<String> btnsPressed = new ArrayList<String>();
 	private String icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15;
 	private static final String icon = "";
-	private int a, i, pressed, pressed0, pressed1, btnPressed = 0;
-	
+	private String message = "";
+
 	private JButton btn0 = new JButton();
 	private JButton btn1 = new JButton();
 	private JButton btn2 = new JButton();
@@ -58,6 +58,8 @@ public class Memory extends JFrame {
 	private JButton btn15 = new JButton();
 
 	private static final Dimension size = new Dimension(100,100);
+	private static final Random rand = new Random();
+	private final ClassLoader cl = this.getClass().getClassLoader();
 
 	public Memory() {
 		initGUI();
@@ -78,7 +80,7 @@ public class Memory extends JFrame {
 		});
 		checkTimer.setRepeats(true);
 		
-		assignimages();
+		assignImages();
 		add(new TitleLabel("Memory"), BorderLayout.PAGE_START);
 		
 		JPanel centerPanel = new JPanel();
@@ -89,7 +91,8 @@ public class Memory extends JFrame {
 		btn0.setPreferredSize(size);
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnPressed++;	
+				btnPressed++;
+				tries++;
 				btnsPressed.add("btn0");
 				setIcon((JButton) e.getSource(), icon0);
 				}
@@ -100,7 +103,8 @@ public class Memory extends JFrame {
 		btn1.setPreferredSize(size);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnPressed++;	
+				btnPressed++;
+				tries++;	
 				btnsPressed.add("btn1");
 				setIcon((JButton) e.getSource(), icon1);
 				}
@@ -112,6 +116,7 @@ public class Memory extends JFrame {
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn2");
 				setIcon((JButton) e.getSource(), icon2);
 				}
@@ -123,6 +128,7 @@ public class Memory extends JFrame {
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn3");
 				setIcon((JButton) e.getSource(), icon3);
 				}
@@ -133,7 +139,8 @@ public class Memory extends JFrame {
 		btn4.setPreferredSize(size);
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnPressed++;	
+				btnPressed++;
+				tries++;	
 				btnsPressed.add("btn4");
 				setIcon((JButton) e.getSource(), icon4);
 				}
@@ -145,6 +152,7 @@ public class Memory extends JFrame {
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
+				tries++;
 				btnsPressed.add("btn5");
 				setIcon((JButton) e.getSource(), icon5);
 				}
@@ -156,6 +164,7 @@ public class Memory extends JFrame {
 		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn6");
 				setIcon((JButton) e.getSource(), icon6);
 				}
@@ -167,6 +176,7 @@ public class Memory extends JFrame {
 		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn7");
 				setIcon((JButton) e.getSource(), icon7);
 				}
@@ -178,6 +188,7 @@ public class Memory extends JFrame {
 		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn8");
 				setIcon((JButton) e.getSource(), icon8);
 				}
@@ -189,6 +200,7 @@ public class Memory extends JFrame {
 		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn9");
 				setIcon((JButton) e.getSource(), icon9);
 				}
@@ -200,6 +212,7 @@ public class Memory extends JFrame {
 		btn10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn10");
 				setIcon((JButton) e.getSource(), icon10);
 				}
@@ -211,6 +224,7 @@ public class Memory extends JFrame {
 		btn11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
+				tries++;
 				btnsPressed.add("btn11");
 				setIcon((JButton) e.getSource(), icon11);
 				}
@@ -222,6 +236,7 @@ public class Memory extends JFrame {
 		btn12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn12");
 				setIcon((JButton) e.getSource(), icon12);
 				}
@@ -233,6 +248,7 @@ public class Memory extends JFrame {
 		btn13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn13");
 				setIcon((JButton) e.getSource(), icon13);
 				}
@@ -244,6 +260,7 @@ public class Memory extends JFrame {
 		btn14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;	
+				tries++;
 				btnsPressed.add("btn14");
 				setIcon((JButton) e.getSource(), icon14);
 				}
@@ -255,6 +272,7 @@ public class Memory extends JFrame {
 		btn15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
+				tries++;
 				btnsPressed.add("btn15");
 				setIcon((JButton) e.getSource(), icon15);
 				}
@@ -265,7 +283,7 @@ public class Memory extends JFrame {
 		
 	}
 		
-	private void assignimages() {
+	private void assignImages() {
 		while(images.size() != 16) {
 		    a = generateRandom(a);
 		    System.out.println(a);
@@ -360,6 +378,7 @@ public class Memory extends JFrame {
 
 			
 			if (key.get(pressed0) == key.get(pressed1))  {
+				cardsFlipped++;
 				btnsPressed.clear();
 				btnPressed = 0;
 			}
@@ -420,12 +439,28 @@ public class Memory extends JFrame {
 				btnPressed = 0;
 			}//end if/else
 		} //end if 2 are pressed
+		
+		if (cardsFlipped == 8) {
+			
+			displayMessage();
+			assignImages();
+			btnsPressed.clear();
+			tries = 0;
+			btnPressed = 0;
+			cardsFlipped =0;
+		}
+		
 	} // end gameCheck method
 	
 	private int generateRandom(int lastRandomNumber) {
 	    int rotate = 1 + rand.nextInt(imagelist.length - 1);
 	    return (lastRandomNumber + rotate) % imagelist.length;
 
+	}
+	
+	private void displayMessage() {
+		message = "Congratulations! You solved the puzzle in " + tries + " tries!";
+		JOptionPane.showMessageDialog(this, message);
 	}
 	
 	private void setIcon(JButton btn, String x) {
