@@ -30,13 +30,35 @@ public class Memory extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int a, i, pressed, pressed0, pressed1, tries, cardsFlipped, btnPressed = 0;
+	private int a;
+	private int i;
+	private int pressed;
+	private int pressed0;
+	private int pressed1;
+	private int tries;
+	private int cardsFlipped;
+	private int btnPressed = 0;
 	private static final int GRIDSIZE = 4;
 	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
-	private ArrayList<String> images = new ArrayList<String>();
-	private ArrayList<String> key = new ArrayList<String>();
-	private ArrayList<String> btnsPressed = new ArrayList<String>();
-	private String icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15;
+	private ArrayList<String> images = new ArrayList<>();
+	private ArrayList<String> key = new ArrayList<>();
+	private ArrayList<String> btnsPressed = new ArrayList<>();
+	private String icon0; 
+	private String icon1; 
+	private String icon2; 
+	private String icon3; 
+	private String icon4; 
+	private String icon5; 
+	private String icon6; 
+	private String icon7; 
+	private String icon8; 
+	private String icon9; 
+	private String icon10; 
+	private String icon11; 
+	private String icon12; 
+	private String icon13; 
+	private String icon14; 
+	private String icon15;
 	private static final String icon = "";
 	private String message = "";
 
@@ -476,7 +498,7 @@ public class Memory extends JFrame {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-			new Memory();
+				new Memory();
 			}
 		});
 	}
