@@ -1,2 +1,20 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'application'
+apply plugin: 'java-library-distribution'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main.java.srcDir "src/main/java"
+    main.resources.srcDir "src/main/resources"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'steven.conaway.memory.Memory'
+            mainClassName = 'steven.conaway.memory.Memory'
+    }
+}
