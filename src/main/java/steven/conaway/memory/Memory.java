@@ -4,8 +4,10 @@
 package steven.conaway.memory;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,23 +17,24 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
-/**
- * @author Steven
- *
- */
 public class Memory extends JFrame {
-
-	/**
-	 * 
-	 */
+	
+	private Boolean good = false;
+	
 	private static final long serialVersionUID = 1L;
 	private int a;
 	private int i;
+	private int x;
+	private int r;
+	private int g;
+	private int b;
+	private int y;
 	private int pressed;
 	private int pressed0;
 	private int pressed1;
@@ -60,7 +63,7 @@ public class Memory extends JFrame {
 	private String icon14; 
 	private String icon15;
 	private static final String icon = "";
-	private String message = "";
+	private String message;
 
 	private JButton btn0 = new JButton();
 	private JButton btn1 = new JButton();
@@ -79,11 +82,15 @@ public class Memory extends JFrame {
 	private JButton btn14 = new JButton();
 	private JButton btn15 = new JButton();
 
+	
+	private Font titleFont = new Font(Font.SERIF, Font.BOLD, 32);
+	private JLabel titleLabel = new JLabel();
 	private static final Dimension size = new Dimension(100,100);
 	private static final Random rand = new Random();
-	private final ClassLoader cl = this.getClass().getClassLoader();
+	private final ClassLoader classloader = this.getClass().getClassLoader();
 
 	public Memory() {
+		assignImages();
 		initGUI();
 		setTitle("Memory");
 		setResizable(false);
@@ -101,9 +108,15 @@ public class Memory extends JFrame {
 			}
 		});
 		checkTimer.setRepeats(true);
+
+		titleLabel.setFont(titleFont);
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		titleLabel.setText("Memory");
+		titleLabel.setBackground(Color.BLACK);
+		titleLabel.setForeground(Color.WHITE);
+		titleLabel.setOpaque(true);
 		
-		assignImages();
-		add(new TitleLabel("Memory"), BorderLayout.PAGE_START);
+		add(titleLabel, BorderLayout.PAGE_START);
 		
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
@@ -306,32 +319,52 @@ public class Memory extends JFrame {
 	}
 		
 	private void assignImages() {
-		while(images.size() != 16) {
-		    a = generateRandom(a);
-		    System.out.println(a);
-		    if(images.lastIndexOf(a) != 1) {
-		    	images.add(imagelist[a]);
-		    	System.out.println(i + ": ");
-				if(a == 0) {
-					key.add("r");
+		while (!good) {
+			while(images.size() != 16) {
+				a = generateRandom(a);
+				if(images.lastIndexOf(a) != 1) {
+					images.add(imagelist[a]);
+					if(a == 0) {
+						key.add("r");
+					}
+					else if(a == 1) {
+						key.add("b");
+					}
+					else if(a == 2) {
+						key.add("g");
+					}
+					else if(a == 3) {
+						key.add("y");
+					}
 				}
-				else if(a == 1) {
-					key.add("b");
+			}
+			
+			for (x=0;x<16;x++) {
+				if (key.get(x).equals("r")) {
+					r++;
 				}
-				else if(a == 2) {
-					key.add("g");
+				else if (key.get(x).equals("g")) {
+					g++;
 				}
-				else if(a == 3) {
-					key.add("y");
+				else if (key.get(x).equals("b")) {
+					b++;
 				}
-		    }
-		   
-		}
-		
-		for (int x=0;x<images.size();x++) {
-			System.out.println(images.get(x));
-		}
-//*/
+				else if (key.get(x).equals("y")) {
+					y++;
+				}
+			}
+			
+			if (r%2 == 0) {
+				if (g%2 == 0) {
+					if (b%2 == 0) {
+						if (y%2 == 0) {
+							good = true;
+						}
+					}
+				}
+			}
+			
+		} 
 	}
 	
 	private void checkGame() {
@@ -339,7 +372,6 @@ public class Memory extends JFrame {
 		if (btnPressed==2) {
 			
 			for (int x=0;x<2;x++) {	
-				System.out.println(btnsPressed.get(x));
 				if (btnsPressed.get(x) == "btn0") {
 					pressed = 0;
 				}
@@ -396,7 +428,6 @@ public class Memory extends JFrame {
 					pressed1 = pressed;
 				}
 			} // end detection for-loop
-			System.out.println("detected");
 
 			
 			if (key.get(pressed0) == key.get(pressed1))  {
@@ -406,7 +437,7 @@ public class Memory extends JFrame {
 			}
 			
 			else {	
-				for (int i=0;i<2;i++) {
+				for (i=0;i<2;i++) {
 					if (btnsPressed.get(i) == "btn0") {
 						setIcon(btn0, icon);
 					}
@@ -465,11 +496,6 @@ public class Memory extends JFrame {
 		if (cardsFlipped == 8) {
 			
 			displayMessage();
-			assignImages();
-			btnsPressed.clear();
-			tries = 0;
-			btnPressed = 0;
-			cardsFlipped =0;
 		}
 		
 	} // end gameCheck method
@@ -483,10 +509,11 @@ public class Memory extends JFrame {
 	private void displayMessage() {
 		message = "Congratulations! You solved the puzzle in " + tries + " tries!";
 		JOptionPane.showMessageDialog(this, message);
+		System.exit(0);
 	}
 	
 	private void setIcon(JButton btn, String x) {
-		btn.setIcon(new ImageIcon(cl.getResource(x)));
+		btn.setIcon(new ImageIcon(classloader.getResource(x)));
 	}
 	
 	public static void main(String[] args) {
@@ -495,11 +522,12 @@ public class Memory extends JFrame {
 			UIManager.setLookAndFeel(className);
 		}
 		catch (Exception e) {}
-		
+	  	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new Memory();
-			}
+				}
 		});
 	}
+	
 }

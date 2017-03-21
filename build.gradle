@@ -1,7 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'java-library-distribution'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'application'
-apply plugin: 'java-library-distribution'
 
 repositories {
     mavenCentral()
