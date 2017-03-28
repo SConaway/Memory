@@ -62,7 +62,7 @@ public class Memory extends JFrame {
 	private String icon13; 
 	private String icon14; 
 	private String icon15;
-	private static final String icon = "";
+	private static final String icon = "images/image.jpg";
 	private String message;
 
 	private JButton btn0 = new JButton();

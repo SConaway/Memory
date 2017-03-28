@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'java-library-distribution'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
 repositories {
     mavenCentral()
@@ -16,5 +17,13 @@ jar {
     manifest {
         attributes 'Main-Class': 'steven.conaway.memory.Memory'
             mainClassName = 'steven.conaway.memory.Memory'
+    }
+}
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
     }
 }
