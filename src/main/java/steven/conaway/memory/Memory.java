@@ -314,6 +314,25 @@ public class Memory extends JFrame {
 		});
 		centerPanel.add(btn15);
 		
+		setIcon(btn0, icon);
+		setIcon(btn1, icon);
+		setIcon(btn2, icon);
+		setIcon(btn3, icon);
+		setIcon(btn4, icon);
+		setIcon(btn5, icon);
+		setIcon(btn6, icon);
+		setIcon(btn7, icon);
+		setIcon(btn8, icon);
+		setIcon(btn9, icon);
+		setIcon(btn10, icon);
+		setIcon(btn11, icon);
+		setIcon(btn12, icon);
+		setIcon(btn13, icon);
+		setIcon(btn14, icon);
+		setIcon(btn15, icon);
+		
+		
+		
 		checkTimer.start();
 		
 	}
