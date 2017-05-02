@@ -1,5 +1,5 @@
 /**
- * 
+ * Copyright Steven Conaway 2017
  */
 package steven.conaway.memory;
 
@@ -129,7 +129,7 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;
 				btnsPressed.add("btn0");
-				setIcon((JButton) e.getSource(), icon0);
+				reveal((JButton) e.getSource(), icon0);
 				}
 		});
 		centerPanel.add(btn0);
@@ -141,7 +141,7 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;	
 				btnsPressed.add("btn1");
-				setIcon((JButton) e.getSource(), icon1);
+				reveal((JButton) e.getSource(), icon1);
 				}
 		});
 		centerPanel.add(btn1);
@@ -153,7 +153,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn2");
-				setIcon((JButton) e.getSource(), icon2);
+				reveal((JButton) e.getSource(), icon2);
 				}
 		});
 		centerPanel.add(btn2);
@@ -165,7 +165,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn3");
-				setIcon((JButton) e.getSource(), icon3);
+				reveal((JButton) e.getSource(), icon3);
 				}
 		});
 		centerPanel.add(btn3);
@@ -177,7 +177,7 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;	
 				btnsPressed.add("btn4");
-				setIcon((JButton) e.getSource(), icon4);
+				reveal((JButton) e.getSource(), icon4);
 				}
 		});
 		centerPanel.add(btn4);
@@ -189,7 +189,7 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;
 				btnsPressed.add("btn5");
-				setIcon((JButton) e.getSource(), icon5);
+				reveal((JButton) e.getSource(), icon5);
 				}
 		});
 		centerPanel.add(btn5);
@@ -201,7 +201,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn6");
-				setIcon((JButton) e.getSource(), icon6);
+				reveal((JButton) e.getSource(), icon6);
 				}
 		});
 		centerPanel.add(btn6);
@@ -213,7 +213,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn7");
-				setIcon((JButton) e.getSource(), icon7);
+				reveal((JButton) e.getSource(), icon7);
 				}
 		});
 		centerPanel.add(btn7);
@@ -225,7 +225,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn8");
-				setIcon((JButton) e.getSource(), icon8);
+				reveal((JButton) e.getSource(), icon8);
 				}
 		});
 		centerPanel.add(btn8);
@@ -237,7 +237,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn9");
-				setIcon((JButton) e.getSource(), icon9);
+				reveal((JButton) e.getSource(), icon9);
 				}
 		});
 		centerPanel.add(btn9);
@@ -249,7 +249,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn10");
-				setIcon((JButton) e.getSource(), icon10);
+				reveal((JButton) e.getSource(), icon10);
 				}
 		});
 		centerPanel.add(btn10);
@@ -261,7 +261,7 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;
 				btnsPressed.add("btn11");
-				setIcon((JButton) e.getSource(), icon11);
+				reveal((JButton) e.getSource(), icon11);
 				}
 		});
 		centerPanel.add(btn11);
@@ -273,7 +273,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn12");
-				setIcon((JButton) e.getSource(), icon12);
+				reveal((JButton) e.getSource(), icon12);
 				}
 		});
 		centerPanel.add(btn12);
@@ -285,7 +285,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn13");
-				setIcon((JButton) e.getSource(), icon13);
+				reveal((JButton) e.getSource(), icon13);
 				}
 		});
 		centerPanel.add(btn13);
@@ -297,7 +297,7 @@ public class Memory extends JFrame {
 				btnPressed++;	
 				tries++;
 				btnsPressed.add("btn14");
-				setIcon((JButton) e.getSource(), icon14);
+				reveal((JButton) e.getSource(), icon14);
 				}
 		});
 		centerPanel.add(btn14);
@@ -309,27 +309,27 @@ public class Memory extends JFrame {
 				btnPressed++;
 				tries++;
 				btnsPressed.add("btn15");
-				setIcon((JButton) e.getSource(), icon15);
+				reveal((JButton) e.getSource(), icon15);
 				}
 		});
 		centerPanel.add(btn15);
 		
-		setIcon(btn0, icon);
-		setIcon(btn1, icon);
-		setIcon(btn2, icon);
-		setIcon(btn3, icon);
-		setIcon(btn4, icon);
-		setIcon(btn5, icon);
-		setIcon(btn6, icon);
-		setIcon(btn7, icon);
-		setIcon(btn8, icon);
-		setIcon(btn9, icon);
-		setIcon(btn10, icon);
-		setIcon(btn11, icon);
-		setIcon(btn12, icon);
-		setIcon(btn13, icon);
-		setIcon(btn14, icon);
-		setIcon(btn15, icon);
+		reveal(btn0, icon);
+		reveal(btn1, icon);
+		reveal(btn2, icon);
+		reveal(btn3, icon);
+		reveal(btn4, icon);
+		reveal(btn5, icon);
+		reveal(btn6, icon);
+		reveal(btn7, icon);
+		reveal(btn8, icon);
+		reveal(btn9, icon);
+		reveal(btn10, icon);
+		reveal(btn11, icon);
+		reveal(btn12, icon);
+		reveal(btn13, icon);
+		reveal(btn14, icon);
+		reveal(btn15, icon);
 		
 		
 		
@@ -341,7 +341,6 @@ public class Memory extends JFrame {
 		while (!good) {
 			while(images.size() != 16) {
 				a = generateRandom(a);
-				if(images.lastIndexOf(a) != 1) {
 					images.add(imagelist[a]);
 					if(a == 0) {
 						key.add("r");
@@ -355,7 +354,7 @@ public class Memory extends JFrame {
 					else if(a == 3) {
 						key.add("y");
 					}
-				}
+					
 			}
 			
 			for (x=0;x<16;x++) {
@@ -458,53 +457,53 @@ public class Memory extends JFrame {
 			else {	
 				for (i=0;i<2;i++) {
 					if (btnsPressed.get(i) == "btn0") {
-						setIcon(btn0, icon);
+						clearIcon(btn0);
 					}
 					else if (btnsPressed.get(i) == "btn1") {
-						setIcon(btn1, icon);
+						clearIcon(btn1);
 					}
 					else if (btnsPressed.get(i) == "btn2") {
-						setIcon(btn2, icon);
+						clearIcon(btn2);
 					}
 					else if (btnsPressed.get(i) == "btn3") {
-						setIcon(btn3, icon);
+						clearIcon(btn3);
 					}
 					else if (btnsPressed.get(i) == "btn4") {
-						setIcon(btn4, icon);
+						clearIcon(btn4);
 					}
 					else if (btnsPressed.get(i) == "btn5") {
-						setIcon(btn5, icon);
+						clearIcon(btn5);
 					}
 					else if (btnsPressed.get(i) == "btn6") {
-						setIcon(btn6, icon);
+						clearIcon(btn6);
 					}
 					else if (btnsPressed.get(i) == "btn7") {
-						setIcon(btn7, icon);
+						clearIcon(btn7);
 					}
 					else if (btnsPressed.get(i) == "btn8") {
-						setIcon(btn8, icon);
+						clearIcon(btn8);
 					}
 					else if (btnsPressed.get(i) == "btn9") {
-						setIcon(btn9, icon);
+						clearIcon(btn9);
 					}
 					else if (btnsPressed.get(i) == "btn10") {
-						setIcon(btn10, icon);
+						clearIcon(btn10);
 					}
 					else if (btnsPressed.get(i) == "btn11") {
-						setIcon(btn11, icon);
+						clearIcon(btn11);
 					}
 					else if (btnsPressed.get(i) == "btn12") {
-						setIcon(btn12, icon);
+						clearIcon(btn12);
 					}
 					else if (btnsPressed.get(i) == "btn13") {
-						setIcon(btn13, icon);
+						clearIcon(btn13);
 					}
 					else if (btnsPressed.get(i) == "btn14") {
-						setIcon(btn14, icon);
+						clearIcon(btn14);
 					}
 					else if (btnsPressed.get(i) == "btn15") {
-						setIcon(btn15, icon);
-					} //end if/else if/else if/...
+						clearIcon(btn15);
+					} //end if/else if/else if...
 					
 				} //end for
 				btnsPressed.clear();
@@ -531,8 +530,12 @@ public class Memory extends JFrame {
 		System.exit(0);
 	}
 	
-	private void setIcon(JButton btn, String x) {
+	private void reveal(JButton btn, String x) {
 		btn.setIcon(new ImageIcon(classloader.getResource(x)));
+	}
+	
+	private void clearIcon(JButton btn) {
+		btn.setIcon(new ImageIcon(classloader.getResource(icon)));
 	}
 	
 	public static void main(String[] args) {
