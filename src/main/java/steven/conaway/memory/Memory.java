@@ -42,11 +42,11 @@ public class Memory extends JFrame {
 	private int cardsFlipped;
 	private int btnPressed = 0;
 	private static final int GRIDSIZE = 4;
-	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"};
+	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"}; // four differnet images
 	private ArrayList<String> images = new ArrayList<>();
 	private ArrayList<String> key = new ArrayList<>();
 	private ArrayList<String> btnsPressed = new ArrayList<>();
-	private String icon0; 
+	private String icon0;  // Create icon variables to correspond with button
 	private String icon1; 
 	private String icon2; 
 	private String icon3; 
@@ -62,10 +62,10 @@ public class Memory extends JFrame {
 	private String icon13; 
 	private String icon14; 
 	private String icon15;
-	private static final String icon = "images/image.jpg";
+	private static final String icon = "images/image.jpg"; // set blank tile image
 	private String message;
 
-	private JButton btn0 = new JButton();
+	private JButton btn0 = new JButton(); //create buttons
 	private JButton btn1 = new JButton();
 	private JButton btn2 = new JButton();
 	private JButton btn3 = new JButton();
@@ -87,7 +87,7 @@ public class Memory extends JFrame {
 	private JLabel titleLabel = new JLabel();
 	private static final Dimension size = new Dimension(100,100);
 	private static final Random rand = new Random();
-	private final ClassLoader classloader = this.getClass().getClassLoader();
+	private final ClassLoader classloader = this.getClass().getClassLoader(); // used to retrieve images
 
 	public Memory() {
 		assignImages();
@@ -102,9 +102,9 @@ public class Memory extends JFrame {
 	
 	private void initGUI() {
 
-		Timer checkTimer= new Timer(500, new ActionListener() {
+		Timer checkTimer= new Timer(500, new ActionListener() {  //create a new timer
 			public void actionPerformed(ActionEvent e) {
-				checkGame();
+				checkGame();									 //tell timer to run checkGame method
 			}
 		});
 		checkTimer.setRepeats(true);
