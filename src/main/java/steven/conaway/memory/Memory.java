@@ -109,7 +109,7 @@ public class Memory extends JFrame {
 		});
 		checkTimer.setRepeats(true);
 
-		titleLabel.setFont(titleFont);
+		titleLabel.setFont(titleFont);							//Create and add a label to display title to the top of window
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setText("Memory");
 		titleLabel.setBackground(Color.BLACK);
@@ -118,12 +118,12 @@ public class Memory extends JFrame {
 		
 		add(titleLabel, BorderLayout.PAGE_START);
 		
-		JPanel centerPanel = new JPanel();
+		JPanel centerPanel = new JPanel();					   //Create and add a center panel to the center of the window
 		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
 		add(centerPanel, BorderLayout.CENTER);
 		
-		icon0 = images.get(0);
-		btn0.setPreferredSize(size);
+		icon0 = images.get(0);								  // Set icon0 to images.get(0) (Assigned in assignImages method)
+		btn0.setPreferredSize(size);						  // set btn0 to 100x100px
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;
