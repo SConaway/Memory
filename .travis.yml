@@ -1,5 +1,18 @@
 language: java
-sudo: false
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: linux
+      dist: trusty
+      sudo: false
+    - os: linux
+      dist: precise
+      sudo: required
+    - os: linux
+      dist: precise
+      sudo: false
 addons:
     apt:
         packages:

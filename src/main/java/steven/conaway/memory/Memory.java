@@ -102,14 +102,14 @@ public class Memory extends JFrame {
 	
 	private void initGUI() {
 
-		Timer checkTimer= new Timer(500, new ActionListener() {  //create a new timer
+		Timer checkTimer= new Timer(500, new ActionListener() {  // create a new timer
 			public void actionPerformed(ActionEvent e) {
-				checkGame();									 //tell timer to run checkGame method
+				checkGame();									 // tell timer to run checkGame method when out of time
 			}
 		});
-		checkTimer.setRepeats(true);
+		checkTimer.setRepeats(true);							// set timer to repeat
 
-		titleLabel.setFont(titleFont);							//Create and add a label to display title to the top of window
+		titleLabel.setFont(titleFont);							// Create and add a label to display title to the top of window
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setText("Memory");
 		titleLabel.setBackground(Color.BLACK);
@@ -118,18 +118,18 @@ public class Memory extends JFrame {
 		
 		add(titleLabel, BorderLayout.PAGE_START);
 		
-		JPanel centerPanel = new JPanel();					   //Create and add a center panel to the center of the window
+		JPanel centerPanel = new JPanel();					   // Create and add a center panel to the center of the window
 		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
 		add(centerPanel, BorderLayout.CENTER);
 		
 		icon0 = images.get(0);								  // Set icon0 to images.get(0) (Assigned in assignImages method)
 		btn0.setPreferredSize(size);						  // set btn0 to 100x100px
-		btn0.addActionListener(new ActionListener() {
+		btn0.addActionListener(new ActionListener() {		  // Set btn0 to 
 			public void actionPerformed(ActionEvent e) {
-				btnPressed++;
-				tries++;
-				btnsPressed.add("btn0");
-				reveal((JButton) e.getSource(), icon0);
+				btnPressed++;								  // add 1 to btnPressed
+				tries++;									  // add 1 to the try counter
+				btnsPressed.add("btn0");					  // add "btn0" to list of Recently-Pressed Buttons
+				reveal((JButton) e.getSource(), icon0);		  // reveal the button pressed
 				}
 		});
 		centerPanel.add(btn0);
