@@ -118,12 +118,12 @@ public class Memory extends JFrame {
 		
 		add(titleLabel, BorderLayout.PAGE_START);
 		
-		JPanel centerPanel = new JPanel();					   // Create and add a center panel to the center of the window
-		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE));
-		add(centerPanel, BorderLayout.CENTER);
+		JPanel centerPanel = new JPanel();					   // Create a center panel
+		centerPanel.setLayout(new GridLayout(GRIDSIZE, GRIDSIZE)); // Set the center panel to be in a 4x4 layout
+		add(centerPanel, BorderLayout.CENTER);				  // add centerPanel to center of window
 		
 		icon0 = images.get(0);								  // Set icon0 to images.get(0) (Assigned in assignImages method)
-		btn0.setPreferredSize(size);						  // set btn0 to 100x100px
+		btn0.setPreferredSize(size);						  // Set btn0 to 100x100px
 		btn0.addActionListener(new ActionListener() {		  // Set btn0 to 
 			public void actionPerformed(ActionEvent e) {
 				btnPressed++;								  // add 1 to btnPressed
@@ -132,9 +132,9 @@ public class Memory extends JFrame {
 				reveal((JButton) e.getSource(), icon0);		  // reveal the button pressed
 				}
 		});
-		centerPanel.add(btn0);
+		centerPanel.add(btn0);								  // add btn0 to the center panel
 		
-		icon1 = images.get(1);
+		icon1 = images.get(1);								  // same thing as above
 		btn1.setPreferredSize(size);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -314,22 +314,22 @@ public class Memory extends JFrame {
 		});
 		centerPanel.add(btn15);
 		
-		reveal(btn0, icon);
-		reveal(btn1, icon);
-		reveal(btn2, icon);
-		reveal(btn3, icon);
-		reveal(btn4, icon);
-		reveal(btn5, icon);
-		reveal(btn6, icon);
-		reveal(btn7, icon);
-		reveal(btn8, icon);
-		reveal(btn9, icon);
-		reveal(btn10, icon);
-		reveal(btn11, icon);
-		reveal(btn12, icon);
-		reveal(btn13, icon);
-		reveal(btn14, icon);
-		reveal(btn15, icon);
+		clearIcon(btn0); // clear btns 0-15 (set to ?)
+		clearIcon(btn1); 
+		clearIcon(btn2); 
+		clearIcon(btn3); 
+		clearIcon(btn4); 
+		clearIcon(btn5); 
+		clearIcon(btn6); 
+		clearIcon(btn7); 
+		clearIcon(btn8);
+		clearIcon(btn9); 
+		clearIcon(btn10); 
+		clearIcon(btn11); 
+		clearIcon(btn12); 
+		clearIcon(btn13); 
+		clearIcon(btn14); 
+		clearIcon(btn15); 
 		
 		
 		
