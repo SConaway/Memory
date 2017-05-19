@@ -42,7 +42,7 @@ public class Memory extends JFrame {
 	private int cardsFlipped;
 	private int btnPressed = 0;
 	private static final int GRIDSIZE = 4;
-	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"}; // four differnet images
+	private static final String[] imagelist = {"images/image01.jpg", "images/image02.jpg","images/image03.jpg","images/image04.jpg"}; // four different images
 	private ArrayList<String> images = new ArrayList<>();
 	private ArrayList<String> key = new ArrayList<>();
 	private ArrayList<String> btnsPressed = new ArrayList<>();
@@ -372,15 +372,17 @@ public class Memory extends JFrame {
 				}
 			}
 			
-			if (r%2 == 0) {
-				if (g%2 == 0) {
-					if (b%2 == 0) {
-						if (y%2 == 0) {
-							good = true;
-						}
-					}
-				}
-			}
+			if (r%2 == 0 && g%2 == 0 && b%2 == 0 && y%2 == 0) {
+                		good = true;
+           		 }
+            		else {
+               			r = 0;
+               			g = 0;
+                		b = 0;
+                		y = 0;
+                		images.clear();
+                		key.clear();
+            		}
 			
 		} 
 	}
