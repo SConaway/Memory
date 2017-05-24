@@ -374,15 +374,15 @@ public class Memory extends JFrame {
 			
 			if (r%2 == 0 && g%2 == 0 && b%2 == 0 && y%2 == 0) {
                 		good = true;
-           		 }
-            		else {
-               			r = 0;
-               			g = 0;
-                		b = 0;
-                		y = 0;
-                		images.clear();
-                		key.clear();
-            		}
+           	}
+            else {
+       			r = 0;
+       			g = 0;
+                b = 0;
+                y = 0;
+                images.clear();
+                key.clear();
+            }
 			
 		} 
 	}
@@ -453,7 +453,7 @@ public class Memory extends JFrame {
 			if (key.get(pressed0) == key.get(pressed1))  {
 				cardsFlipped++;
 				btnsPressed.clear();
-				btnPressed = 0;
+				btnPressed -= 2;
 			}
 			
 			else {	
