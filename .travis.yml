@@ -6,9 +6,9 @@ jdk:
     - openjdk7
     - openjdk8
 
-before_script: 
+after_install: 
     - echo $JAVA_HOME
-    - ls /usr/lib/jvm/
+    - ls -R /usr/lib/jvm/
 
 script:
     - ./gradlew build
