@@ -1,10 +1,14 @@
 language: java
-jdk:
-    - oraclejdk8
-    - oraclejdk9
-    - openjdk6
-    - openjdk7
-    - openjdk8
+
+matrix:
+  include:
+    - jdk: oraclejdk8
+    - sudo: required
+      dist: precise
+      jdk: oraclejdk7
+    - sudo: required
+      dist: precise
+      jdk: openjdk7
 
 before_install: 
     - echo $JAVA_HOME
