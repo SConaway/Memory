@@ -6,7 +6,7 @@ jdk:
     - openjdk7
     - openjdk8
 
-after_install: 
+before_install: 
     - echo $JAVA_HOME
     - ls -R /usr/lib/jvm/
 
